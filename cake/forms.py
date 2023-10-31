@@ -46,4 +46,9 @@ class ContactForm(forms.Form):
     class Meta:
         model = ContactFormEntry
         fields = ['name', 'email', 'phone_number', 'how_did_you_find_us']
-    
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Signup
+        fields = ['full_name','username','phone_number', 'location']

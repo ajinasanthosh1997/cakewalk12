@@ -36,7 +36,7 @@ def log_in(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                request.session['full_name'] = request.user.userprofile.full_name
+                
                 return redirect('cake:index')  # Redirect to the 'index' page on successful login
             else:
                 # Authentication failed, display an error message to the user
@@ -78,6 +78,17 @@ def single(request):
 def product(request):
     return render(request, 'cake/product.html')  
 
+def userprofile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('user_profile')  # Redirect to the user's profile page after saving
+    else:
+        form = UserRegistrationForm(instance=user)
+
+    return render(request, 'cake/user_profile.html', {'form': form})
 
 def signout(request):
     logout(request)

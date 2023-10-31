@@ -1,0 +1,117 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<section class="cart-sec">
+    <div class="cart-flex flex1">
+        <div>
+            <div>
+                <a href="#" class="cart-font1"><span class="material-symbols-outlined">
+                    arrow_back_ios
+                    </span> Shopping Continue</a>
+            </div>
+            <hr style="margin-top: 1.5rem;">
+            <div style="margin-top: 2rem;">
+                <h3 class="cart-font1">Shopping cart</h3>
+                <p class="cart-font2">You have 3 item in your cart</p>
+            </div>
+            <div class="cart-flex cart-card1">
+                <img src="{% static 'images/images (1) 1.svg' %}">
+                <div>
+                    <h3 class="cart-font1" style="font-size: 16px;">cream cake</h3>
+                    <p class="cart-font2" style="font-size: 14px;">Extra cheese and toping</p>
+                </div>
+                <input type="number" id="quantity" value="1" min="1" max="10" class="cart-quan">
+                <h5  class="cart-font1" style="    margin-top: 2rem;">$681</h5>
+                <img src="{% static 'images/Trash Can.svg' %}">
+            </div>
+            <div class="cart-flex cart-card1">
+                <img src="{% static 'images/images (1) 1.svg' %}">
+                <div>
+                    <h3 class="cart-font1" style="font-size: 16px;">cream cake</h3>
+                    <p class="cart-font2" style="font-size: 14px;">Extra cheese and toping</p>
+                </div>
+                <input type="number" id="quantity" value="1" min="1" max="10" class="cart-quan">
+                <h5  class="cart-font1" style="    margin-top: 2rem;">$681</h5>
+                <img src="{% static 'images/Trash Can.svg' %}">
+            </div>
+            <div class="cart-flex cart-card1">
+                <img src="{% static 'images/images (1) 1.svg' %}">
+                <div>
+                    <h3 class="cart-font1" style="font-size: 16px;">cream cake</h3>
+                    <p class="cart-font2" style="font-size: 14px;">Extra cheese and toping</p>
+                </div>
+                <input type="number" id="quantity" value="1" min="1" max="10" class="cart-quan">
+                <h5  class="cart-font1" style="    margin-top: 2rem;">$681</h5>
+                <img src="{% static 'images/Trash Can.svg' %}">
+            </div>
+        </div>
+        <div class="cart-card" style="padding: 2rem;width: 22rem;">
+            
+            <div class="cart-flex2">
+                <h2 class="cart-h2">Card Details</h2>
+                <img src="{% static 'images/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.svg' %}">
+            </div>
+            <h6 class="cart-h6">Card type</h6>
+            <div class="cart-flex2">
+                <div>
+                    <img src="{% static 'images/Rectangle 9.svg' %}">
+                </div>
+                <div>
+                    <img src="{% static 'images/Rectangle 10.svg' %}">
+                </div>
+                <div>
+                    <img src="{% static 'images/Rectangle 11.svg' %}">
+                </div>
+                <div>
+                    <img src="{% static 'images/Rectangle 12.svg' %}">
+                </div>
+            </div>
+            <form method="post">
+                <div class="margin2">
+                    <label class="cart-label">Name on card</label>
+                    <input type="text" placeholder="Name" class="cart-in">
+                </div>
+                <div class="margin2">
+                    <label class="cart-label">Card Number</label>
+                    <input type="text" placeholder="1111 2222 3333 4444" class="cart-in">
+                </div>
+                <div class="cart-flex2 margin2">
+                    <div>
+                        <label class="cart-label">Expiration date</label>
+                        <input type="text" placeholder="mm/yy" class="cart-in2">
+                    </div>
+                    <div>
+                        <label class="cart-label">CVV</label>
+                        <input type="text" placeholder="123" class="cart-in2">
+                    </div>
+                </div>
+                <div class="cart-style card-p">
+                    <div class="cart-flex2">
+                        <h4 class="cart-label card-p">Subtotal</h4>
+                        <h4 class="cart-label card-p">$1,668</h4>
+                    </div>
+                    <div class="cart-flex2">
+                        <h4 class="cart-label card-p">Shipping</h4>
+                        <h4 class="cart-label card-p">$4</h4>
+                    </div>
+                    <div class="cart-flex2">
+                        <h4 class="cart-label card-p">Total (Tax incl.)</h4>
+                        <h4 class="cart-label card-p">$1,672</h4>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="cart-bt cart-label" style="color: black;">$1,672 <span><span>Checkout</span><span><img src="{% static 'images/Right.svg' %}"></span></button>
+                </div>
+            </form>
+            
+            <div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}  

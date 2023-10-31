@@ -9,7 +9,7 @@ python manage.py migrate
 python manage.py collectstatic
 
 # Start Gunicorn or run Django development server
-gunicorn awalmuhammed.wsgi:application -w 2 -b :8000
+gunicorn cakewalk.wsgi:application -w 2 -b :8004
 # OR
 # python manage.py runserver 0.0.0.0:8000
 

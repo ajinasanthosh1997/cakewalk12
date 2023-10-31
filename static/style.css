@@ -639,11 +639,32 @@ color: white;
 
 .user-flex{
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: left;
+    gap: 8rem;
 }
 .user-div{
     border-left: 2px solid gray;
+}
+.userdiv1{
+    margin-top: 5rem;
+    margin-left: 6rem;
+}
+.userdiv2{
+    display: flex;
+    gap: 1rem;
+}
+.div1{
+    margin-top: 1rem;
+    margin-left: 16rem;
+    margin-bottom: 8rem;
+}
+.divimg{
+    width: 80px;
+   
+}
+.img1{
+    display: flex;
+    gap: 2rem;
 }
 
 /* single-prodict.html */
@@ -760,8 +781,46 @@ color: white;
 }
 .prdct-font:hover{
     border: 2px solid #FFD135;
+
     border-radius: 3rem;
     padding: 5px;
     width: 5rem;
     transform: translateY(-5px);
+}
+
+.main1{
+    display: flex;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.main1 input{
+    border-radius: 7px;
+    padding: 11px 12px;
+    width: 15rem;
+    color: gray;
+    margin-top: .5rem;
+    height: 1rem;
+}
+.label1{
+    
+    margin-top: 1rem;
+}
+.button1{
+    border-radius: 10px;
+    border: none;
+    padding: 11px 15px;
+    width: 11rem;
+    background-color: #FFD135;
+}
+.button3{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    border-radius: 10px;
+}
+.user-font1{
+    font-family: 'Source Sans 3', sans-serif ;
+    font-size: 16px;
+    font-weight: 800;
 }

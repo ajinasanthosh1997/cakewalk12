@@ -53,10 +53,10 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link"><img src="{% static 'images/Vector (1).svg' %}"></a>
                     <div class="dropdown-content">
-                        {% if request.user.is_authenticated %}
+                        
                         <div class="nav1">
                             <img src="{% static 'images/Vector (1).svg' %}" style="width: 1rem;">
-                            <a href="#" class="index-font">{{ request.session.full_name }}</a>
+                            <a href="{% url 'cake:userprofile' %}" class="index-font">User</a>
                         </div>
                         
                         <div class="nav1">
@@ -75,14 +75,14 @@
                             </span>
                             <a href="{% url 'cake:log_in' %}" class="index-font">Log In</a>
                         </div>
-                        {% else %}
+                       
                         <div class="nav1">
                             <span class="material-symbols-outlined">
                                 logout
                             </span>
                             <a href="#" class="index-font">Log Out</a>
                         </div>
-                        {% endif %}
+                       
                     </div>
                 </div>
             </nav>
