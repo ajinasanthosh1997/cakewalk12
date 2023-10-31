@@ -92,4 +92,4 @@ def userprofile(request):
 
 def signout(request):
     logout(request)
-    return redirect(reverse('home:index'))     
+    return redirect(reverse('cake:index'))     

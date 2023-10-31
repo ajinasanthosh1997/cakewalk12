@@ -51,12 +51,14 @@
                 <a href="{% url 'cake:contact' %}" class="nav-link">Contact Us</a>
                 <a href="{% url 'cart:cart' %}" class="nav-link"><img src="{% static 'images/Vector1.svg' %}"></a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link"><img src="{% static 'images/Vector (1).svg' %}"></a>
+                    <a href="#" class="nav-link"><img src="{% static 'images/Vector (1).svg' %}">{% if user.is_authenticated %}
+                        Welcome, {{ user.full_name }}
+                    {% endif %}</a>
                     <div class="dropdown-content">
                         
                         <div class="nav1">
                             <img src="{% static 'images/Vector (1).svg' %}" style="width: 1rem;">
-                            <a href="{% url 'cake:userprofile' %}" class="index-font">User</a>
+                            <a href="{% url 'cake:userprofile' %}" class="index-font">Profile</a>
                         </div>
                         
                         <div class="nav1">
@@ -77,11 +79,16 @@
                         </div>
                        
                         <div class="nav1">
+                            {% if user.is_authenticated %}
                             <span class="material-symbols-outlined">
                                 logout
                             </span>
-                            <a href="#" class="index-font">Log Out</a>
+                            <a href="{% url 'cake:signout' %}" class="index-font">Log Out</a>
+                            {% else %}
+
+                            {% endif %}
                         </div>
+                        
                        
                     </div>
                 </div>

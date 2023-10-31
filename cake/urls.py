@@ -13,6 +13,7 @@ urlpatterns = [
     path('single/',views.single, name='single'),
     path('product/',views.product, name='product'),
     path('userprofile/',views.userprofile, name='userprofile'),
+    path('signout/',views.signout, name='signout'),
 
 
 ]
