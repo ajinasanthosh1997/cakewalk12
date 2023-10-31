@@ -1,0 +1,31 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<section class="log-sec" style="margin-top:-6rem;">
+    <div class="log-div">
+        <h1 class="h1">Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="a">
+                <label class="log-label">Email address</label>
+                {% comment %} <input type="email" placeholder="yourname@email.com" class="log-label input"> {% endcomment %}
+                {{ login_form.username }}
+            </div>
+            <div class="a">
+                <label class="log-label ">Password</label>
+                {% comment %} <input type="password" placeholder="************" class="log-label input"> {% endcomment %}
+                {{ login_form.password }}
+            </div>
+            <div>
+                <button type="submit" class="h1 log-bt a">Login</button>
+            </div>
+           
+        </form>
+    </div>
+</section>
+
+{% endblock %}   

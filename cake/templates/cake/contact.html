@@ -1,0 +1,72 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<section class="con-sec">
+    <div class="con-flex">
+        <div>
+            <h1 class="con-font">Get in<span class="con-font1">Touch</span></h1>
+            <p class="con-p">Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo<br> molestie vel, ornare non id blandit netus.</p>
+            
+            <form method="post">
+                {% csrf_token %}
+                <div class="con-mar">
+                    
+                    {{ form.name }}
+                </div>
+                <div class="con-mar">
+                    {{ form.email }}
+                </div>
+                <div class="con-mar">
+                    {{ form.phone_number }}
+                </div>
+                <div class="con-mar">
+                    <!-- <input type="text" placeholder="Select Location" class="con-in" > -->
+                    {% comment %} {{ form.how_did_you_find_us.label_tag }} {% endcomment %}
+                    {{ form.how_did_you_find_us }}
+                    
+
+                </div>
+                <div style="margin-top: 2rem;">
+                    <button type="submit" class="con-bt">SEND</button>
+                </div>
+            </form>
+            <script>
+                // Trigger the success message popup when the page loads
+                window.onload = openSuccessPopup;
+            </script>
+            <div class="con-flex1" style="margin-top: 2rem;">
+                <div class="con-flex1">
+                    <img src="images/2.svg" alt="">
+                    <div>
+                        <h5 class="con-font2">PHONE</h5>
+                        <p class="con-p1">03 5432 1234</p>
+                    </div>
+                </div>
+                <div class="con-flex1">
+                    <img src="images/2.svg" alt="">
+                    <div>
+                        <h5 class="con-font2">FAX</h5>
+                        <p class="con-p1">03 5432 1234</p>
+                    </div>
+                </div>
+                <div class="con-flex1">
+                    <img src="images/3.svg" alt="">
+                    <div>
+                        <h5 class="con-font2">EMAIL</h5>
+                        <p class="con-p1">info@marcc.com.au</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="border"></div> 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.538938097529!2d106.81223107785343!3d-6.192388377796653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f79cf7858835%3A0xaf6e1a646a61bf2a!2sKebon%20kacang%2042!5e0!3m2!1sen!2sin!4v1698387642110!5m2!1sen!2sin" width="400" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="con-img"></iframe>
+        </div>
+    </div>
+</section>
+
+{% endblock %}  

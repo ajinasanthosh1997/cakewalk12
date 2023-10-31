@@ -1,0 +1,50 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <section class="sign-sec">
+        <div class="log-div">
+            <h1 class="h1 width">Let’s get you started</h1>
+            <form method="POST" action="{% url 'cake:signup' %}">
+                {% csrf_token %}
+                <div class="a">
+                    <label class="log-label ">Full name</label>
+                    {% comment %} <input type="text" name="{{ form.full_name }}" placeholder="Ade Tiger" class="log-label input"> {% endcomment %}
+                    {{ form.full_name }}
+                </div>
+                <div class="a">
+                    <label class="log-label ">Email address</label>
+                    {% comment %} <input type="email" name="email" placeholder="yourname@email.com" class="log-label input"> {% endcomment %}
+                    {{ form.username }}
+                </div>
+                <div class="a">
+                    <label class="log-label ">Phone number</label>
+                    {% comment %} <input type="text" name="phone_number" placeholder="800 800 800" class="log-label input" value="+234"> {% endcomment %}
+                    {{ form.phone_number }}
+                </div>
+                <div class="a">
+                    <label class="log-label ">Create password</label>
+                    {% comment %} <input type="password" name="password" placeholder="************" class="log-label input"> {% endcomment %}
+                    {{ form.password }}
+                    <p class="sign-p width">Password must contain a minimum of 8 characters</p>
+                    <p class="sign-p width">Password must contain at least one symbol e.g. @, !</p>
+                </div>
+                <div class="a">
+                    <label class="log-label ">Location<span class="sign-p">(Optional)</span></label>
+                    {% comment %} <input type="text" name="location" placeholder="Select Location" class="log-label input" > {% endcomment %}
+                    {{ form.location }}
+                </div>
+                <div>
+                    <button type="submit" class="h1 log-bt a margin">Sign Up</button>
+                </div>
+                <div class="sign-flex">
+                    <p class="sign-font">Already a user?&nbsp;&nbsp;<span><a href="#" class="log">Login</a></span></p>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+{% endblock %}       

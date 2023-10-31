@@ -1,0 +1,90 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+<section class="sec2">
+    <div class="sec2-flex">
+        <div>
+            <h1 class="sec1-h1">The Most Delicious<br> Cakes in Kerala</h1>
+            <p class="sec1-p">The Most Beautiful and tasty Cakes in  Kerala and All Type of<br> Cakes Available in Our Shop</p>
+            <a href="#" class="sec1-button">Order Now</a>
+        </div>
+        <div>
+            <img src="{% static 'images/Union.svg' %}" class="sec1-img">
+            <img src="{% static 'images/image 1.svg' %}">
+        </div>
+    </div>
+</section>
+<section>
+    <h2 class="sec2-h2">Category</h2>
+    <div class="sec2-flex gap" >
+        <div class="sec2-round">
+            <h3 class="sec2-h3">Cake</h3>
+            <p class="sec2-p">Happiness is homemade. and it<br> starts with cake</p>
+        </div>
+        <div class="sec2-round">
+            <h3 class="sec2-h3">Muffins</h3>
+            <p class="sec2-p">Baking muffins is like a little bit of<br> heaven in your kitchen.</p>
+        </div>
+        <div class="sec2-round">
+            <h3 class="sec2-h3">Cup Cake</h3>
+            <p class="sec2-p">Cupcakes are the dessert<br> equivalent of a hug</p>
+        </div>
+        <div class="sec2-round">
+            <h3 class="sec2-h3">Popsicle</h3>
+            <p class="sec2-p">Popsicles are the sweet escape<br> on a stick</p>
+        </div>
+    </div>
+</section>
+<section class="sec3">
+    <div>
+        <div class="sec3-flex" style="padding-top: 4rem;">
+            <img src="{% static 'images/Star 2.svg' %}">
+            <h1 class="sec3-h1">Why people love Cake Walk cakes</h1>
+            <img src="{% static 'images/Star 2.svg' %}">
+        </div>
+        <p class="sec3-p">Cake Walk made a stunning unicorn cake for my daughter’s party. Rainbow layers and a cute fondant<br> unicorn. My daughter was thrilled. The cake was yummy and moist. Sugar Bubble is the best!</p>
+        <h6 class="sec3-h6">- Mary</h6>
+    </div>
+    
+</section>
+<section class="sec4">
+    
+    <h1 class="sec4-h1">Best Selling</h1>
+    <div class="sec4-flex">
+        <div>
+            <img src="{% static 'images/Rectangle 6.svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Bundt Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Caramel Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Caramel Cake</p>
+        </div>
+    </div>
+    <div class="sec4-div">
+        <a href="#" class="sec4-link">View More</a>
+    </div>
+    
+</section>
+<section class="sec5">
+    <h1 class="sec4-h1">About Us</h1>
+    <p class="sec5-p">At Cake Walk, we believe that every moment deserves to be celebrated with a touch of sweetness. Our journey began with a simple passion for<br> baking and an unwavering commitment to creating exceptional cakes that not only tantalize your taste buds but also enchant your eyes<br><br>
+
+        Our story is one of dedication, creativity, and an unyielding love for the art of baking. It all started in a cozy kitchen, where our founder, Leena, spent<br> countless hours experimenting with ingredients, recipes, and decorating techniques. With a dream of spreading happiness through the magic of<br> cakes, [Founder's Name] embarked on a journey filled with flour, sugar, and lots of love.<br>
+        As our reputation for crafting delectable masterpieces grew, so did our little bakery. We transitioned from that cozy kitchen to a full-fledged bakery,<br> and eventually, we ventured into the digital world to reach cake enthusiasts worldwide. Today, we are proud to be your trusted source for<br> extraordinary cakes that add a delightful touch to your special moments.</p>
+</section>
+{% endblock %}   

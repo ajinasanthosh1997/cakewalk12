@@ -1,0 +1,78 @@
+{% extends "cake/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<section style="margin-top: 5rem;">
+    <div class="product-flex">
+        <div>
+            <img src="{% static 'images/image 1.svg' %}" alt="">
+            <div class="product-flex">
+                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
+                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
+                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
+                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
+            </div>
+        </div>
+        <div>
+            <h1 class="prdct-font1">Berries Chocalate Cake</h1>
+            <h3 class="prdct-p"> ₹ 399</h3>
+            <p class="con-p">Pick an upgrade</p>
+            <div class="product-flex1">
+                <button class="quantity-button">
+                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="Half Kg">
+                    Half Kg
+                </button>
+                <button class="quantity-button">
+                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="1 Kg">
+                    1 Kg
+                </button>
+                <button class="quantity-button">
+                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="1.5 Kg">
+                    1.5 Kg
+                </button>
+            </div>
+            <input type="checkbox" placeholder><span class="p1">Eggless</span>
+            <form method="post">
+                <input type="text" placeholder="Add Location" class="log-label input1">
+                <div class="product-flex1">
+                    <input type="date" placeholder="Delivery Date" class="log-label input2">
+                    <input type="text" placeholder="Message" class="log-label input2">
+                </div>
+                <div class="product-flex1">
+                    <button type="submit" class=" but1 a margin con-p">Add to cart</button>
+                    <button type="submit" class=" but2 a margin con-p">Buy Now</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>
+<section class="sec4" style="margin-top: 6rem; margin-bottom: 2rem;">
+    <div class="sec4-flex">
+        <div>
+            <img src="{% static 'images/Rectangle 6.svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Bundt Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Caramel Cake</p>
+        </div>
+        <div>
+            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
+            <h4 class="sec4-h4">₹ 540</h4>
+            <p class="sec4-p">Butterscotch Caramel Cake</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
