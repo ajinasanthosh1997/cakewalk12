@@ -21,19 +21,14 @@
             <h3 class="prdct-p"> ₹ 399</h3>
             <p class="con-p">Pick an upgrade</p>
             <div class="product-flex1">
-                <button class="quantity-button">
-                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="Half Kg">
-                    Half Kg
-                </button>
-                <button class="quantity-button">
-                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="1 Kg">
-                    1 Kg
-                </button>
-                <button class="quantity-button">
-                    <img src="{% static 'images/Rectangle 6.svg' %}" alt="1.5 Kg">
-                    1.5 Kg
-                </button>
+                <label for="cake-kg" class="con-p">Select Cake Weight:</label>
+                <select id="cake-kg" class="select">
+                    <option value="0.5">Half Kg</option>
+                    <option value="1">1 Kg</option>
+                    <option value="1.5">1.5 Kg</option>
+                </select>
             </div>
+            
             <input type="checkbox" placeholder><span class="p1">Eggless</span>
             <form method="post">
                 <input type="text" placeholder="Add Location" class="log-label input1">

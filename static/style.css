@@ -25,6 +25,14 @@ header{
     
     
 }
+.select{
+    border-radius: 5px;
+    padding: 7px 4px;
+    text-align: left;
+    width: 18rem;
+    height: 41px;
+    border: 2px solid gray;
+}
 /* Style the navigation items */
 .nav-item {
     float: left;
