@@ -53,41 +53,29 @@
             
             <div class="cart-flex2">
                 <h2 class="cart-h2">Card Details</h2>
-                {% comment %} <img src="{% static 'images/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.svg' %}"> {% endcomment %}
+                <img src="{% static 'images/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.svg' %}">
             </div>
             <h6 class="cart-h6">Card type</h6>
             <div class="cart-flex2">
-                <div>
-                    <img src="{% static 'images/Rectangle 9.svg' %}">
-                </div>
-                <div>
-                    <img src="{% static 'images/Rectangle 10.svg' %}">
-                </div>
-                <div>
-                    <img src="{% static 'images/Rectangle 11.svg' %}">
-                </div>
-                <div>
-                    <img src="{% static 'images/Rectangle 12.svg' %}">
-                </div>
+                
             </div>
-            <form method="post" id="payment-form">
-                {% csrf_token %}
+            <form  id="payment-form">
                 <div class="margin2">
                     <label class="cart-label">Name on card</label>
-                    {{ form.name_on_card }}
+                    <input type="text" placeholder="Name" class="cart-in">
                 </div>
                 <div class="margin2">
                     <label class="cart-label">Card Number</label>
-                    {{ form.card_number }}
+                    <input type="text" placeholder="1111 2222 3333 4444" class="cart-in">
                 </div>
                 <div class="cart-flex2 margin2">
                     <div>
                         <label class="cart-label">Expiration date</label>
-                        {{ form.expiration_date }}
+                        <input type="text" placeholder="mm/yy" class="cart-in2">
                     </div>
                     <div>
                         <label class="cart-label">CVV</label>
-                        {{ form.cvv }}
+                        <input type="text" placeholder="123" class="cart-in2">
                     </div>
                 </div>
                 <div class="cart-style card-p">
