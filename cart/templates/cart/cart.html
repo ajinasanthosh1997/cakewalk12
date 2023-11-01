@@ -53,7 +53,7 @@
             
             <div class="cart-flex2">
                 <h2 class="cart-h2">Card Details</h2>
-                <img src="{% static 'images/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.svg' %}">
+                {% comment %} <img src="{% static 'images/attractive-woman-with-beautiful-smile-sitting-lotus-pose-floor-using-silver-notebook-looking-away-isolated-white-wall 1.svg' %}"> {% endcomment %}
             </div>
             <h6 class="cart-h6">Card type</h6>
             <div class="cart-flex2">
@@ -70,23 +70,24 @@
                     <img src="{% static 'images/Rectangle 12.svg' %}">
                 </div>
             </div>
-            <form method="post">
+            <form method="post" id="payment-form">
+                {% csrf_token %}
                 <div class="margin2">
                     <label class="cart-label">Name on card</label>
-                    <input type="text" placeholder="Name" class="cart-in">
+                    {{ form.name_on_card }}
                 </div>
                 <div class="margin2">
                     <label class="cart-label">Card Number</label>
-                    <input type="text" placeholder="1111 2222 3333 4444" class="cart-in">
+                    {{ form.card_number }}
                 </div>
                 <div class="cart-flex2 margin2">
                     <div>
                         <label class="cart-label">Expiration date</label>
-                        <input type="text" placeholder="mm/yy" class="cart-in2">
+                        {{ form.expiration_date }}
                     </div>
                     <div>
                         <label class="cart-label">CVV</label>
-                        <input type="text" placeholder="123" class="cart-in2">
+                        {{ form.cvv }}
                     </div>
                 </div>
                 <div class="cart-style card-p">
@@ -113,5 +114,6 @@
             </div>
         </div>
     </div>
+    <script src="https://js.stripe.com/v3/"></script>
 </section>
 {% endblock %}  
