@@ -8,13 +8,10 @@ from django.urls import reverse
 def signup(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
-        print('thissisis sis s s sisre equest post data',request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-
-            print(user)
             
             messages.success(request,'you have signed up successfully!')
             return redirect('cake:log_in')
@@ -23,9 +20,11 @@ def signup(request):
     form = UserRegistrationForm()
 
     return render(request,'cake/signup.html',{'form':form})
-# Create your views here.
+
 def index(request):
-    return render(request, 'cake/index.html')
+    categories = Category.objects.all()
+    cakes = Products.objects.filter(category='1')
+    return render(request,"cake/index.html",{'categories' : categories, 'cakes' : cakes})
 
 def log_in(request):
     if request.method == 'POST':
@@ -70,13 +69,19 @@ def contact(request):
 
     return render(request, 'cake/contact.html', {'form': form})
     
-def single(request):
-    return render(request, 'cake/single-product.html') 
+def single(request, pk):
+    item = Products.objects.filter(pk=pk).first()
+    products = Products.objects.all()
+    return render(request, 'cake/single-product.html',{'item' : item, 'products' : products})
 
 
 
-def product(request):
-    return render(request, 'cake/product.html')  
+def products(request):
+    cakes = Products.objects.filter(category='1')
+    muffins = Products.objects.filter(category='2')
+    cupcakes = Products.objects.filter(category='3')
+    popsicles = Products.objects.filter(category='4')
+    return render(request,"cake/product.html",{'cakes': cakes, 'muffins' : muffins, 'cupcakes' : cupcakes, 'popsicles' : popsicles})
 
 def userprofile(request):
     user = request.user  # Assuming the user is logged in

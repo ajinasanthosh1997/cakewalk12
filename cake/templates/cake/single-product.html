@@ -1,36 +1,43 @@
-{% extends "cake/base.html" %}
 
-{% block title %}Home Page{% endblock %}
+{% extends "cake/base.html" %}
+{% load static %}
+
+{% block title %}{{item.name}}{% endblock %}
 
 {% block content %}
-{% load static %}
 
 <section style="margin-top: 5rem;">
     <div class="product-flex">
         <div>
-            <img src="{% static 'images/image 1.svg' %}" alt="">
+            <img src="{{item.image.url}}" alt="Error" width="350px" style="margin: 1rem auto;border-radius: .75rem;">
             <div class="product-flex">
-                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
-                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
-                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
-                <img src="{% static 'images/Rectangle 6.svg' %}" alt="" class="prdct-img">
+                <img src="{{item.image.url}}" alt="" class="prdct-img">
+                {% if item.image1 %}
+                <img src="{{item.image1.url}}" alt="" class="prdct-img">
+                <img src="{{item.image2.url}}" alt="" class="prdct-img">
+                <img src="{{item.image3.url}}" alt="" class="prdct-img">
+                {% endif %}
             </div>
         </div>
         <div>
-            <h1 class="prdct-font1">Berries Chocalate Cake</h1>
-            <h3 class="prdct-p"> ₹ 399</h3>
-            <p class="con-p">Pick an upgrade</p>
+            <h1 class="prdct-font1">{{item.name}}</h1>
+            {% if item.price_one_kg %}<h3 class="prdct-p"><span>₹ </span>{{item.price_one_kg}}</h3>{% else %}<h3 class="prdct-p"><span>₹ </span>{{item.price_per_piece}}</h3>{% endif %}
             <div class="product-flex1">
-                <label for="cake-kg" class="con-p">Select Cake Weight:</label>
-                <select id="cake-kg" class="select">
-                    <option value="0.5">Half Kg</option>
-                    <option value="1">1 Kg</option>
-                    <option value="1.5">1.5 Kg</option>
+                {% if item.price_half_kg %}
+                <p class="con-p">Pick an upgrade</p>
+                <select name="variants" id="types" class="variants_of">
+                    <option value="{{item.price_half_kg}}"><span>1/2 Kg - </span>{{item.price_half_kg}}</option>
+                    <option value="{{item.price_one_kg}}"><span>1 Kg - </span>{{item.price_one_kg}}</option>
+                    <option value="{{item.price_one_and_half_kg}}"><span>1 1/2 Kg - </span>{{item.price_one_and_half_kg}}</option>
                 </select>
+                {% else %}
+                {% endif %}
             </div>
-            
-            <input type="checkbox" placeholder><span class="p1">Eggless</span>
-            <form method="post">
+            {% if item.eggless %}
+            <input type="checkbox" id="eggless">
+            <label for="eggless">Eggless</label>
+            {% endif %}
+            <form method="post" action="add_to_cart/">
                 <input type="text" placeholder="Add Location" class="log-label input1">
                 <div class="product-flex1">
                     <input type="date" placeholder="Delivery Date" class="log-label input2">
@@ -38,7 +45,6 @@
                 </div>
                 <div class="product-flex1">
                     <button type="submit" class=" but1 a margin con-p">Add to cart</button>
-                    <button type="submit" class=" but2 a margin con-p">Buy Now</button>
                 </div>
                 
             </form>
@@ -47,26 +53,15 @@
 </section>
 <section class="sec4" style="margin-top: 6rem; margin-bottom: 2rem;">
     <div class="sec4-flex">
-        <div>
-            <img src="{% static 'images/Rectangle 6.svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Bundt Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
+        {% for product in products %}
+        <a href="{% url 'cake:single_product' product.id %}">
+            <div>
+                <img src="{{product.image.url}}" width="250px" style="border-radius: 10px;">
+                {% if product.price_one_kg  %}<h3 class="sec4-h4"><span>₹ </span>{{product.price_one_kg}}</h3>{% else %}<h4 class="sec4-h4"><span>₹ </span>{{product.price_per_piece}}</h4>{% endif %}
+                <p class="sec4-p">{{product.name}}</p>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </section>
 

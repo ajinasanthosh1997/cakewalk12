@@ -10,8 +10,8 @@ urlpatterns = [
     path('signup/',views.signup,name="signup"),
     path('log_in/',views.log_in, name='log_in'),
     path('contact/',views.contact, name='contact'),
-    path('single/',views.single, name='single'),
-    path('product/',views.product, name='product'),
+    path('single/<int:pk>/',views.single, name='single_product'),
+    path('product/',views.products, name='products'),
     path('userprofile/',views.userprofile, name='userprofile'),
     path('signout/',views.signout, name='signout'),
 

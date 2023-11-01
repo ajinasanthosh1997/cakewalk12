@@ -1,88 +1,98 @@
 {% extends "cake/base.html" %}
-
-{% block title %}Home Page{% endblock %}
-
-{% block content %}
 {% load static %}
 
-<section class="prdct-sec">
-    <div class="prdct-flex">
-        <h1 class="sec1-h1">Cake</h1>
-        <div class="prdct-flex">
-            <a href="#" class="prdct-font">Cake</a>
-            <a href="#" class="prdct-font">Muffins</a>
-            <a href="#" class="prdct-font">Cupcake</a>
-            <a href="#" class="prdct-font">Popsicle</a>
-        </div>
-    </div>
-</section>
-<section style="margin: 5rem;">
-    <div class="sec4-flex">
-        <div>
-            <img src="{% static 'images/Rectangle 6.svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Bundt Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-    </div>
-    <div class="sec4-flex">
-        <div>
-            <img src="{% static 'images/Rectangle 6.svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Bundt Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-    </div>
-    <div class="sec4-flex">
-        <div>
-            <img src="{% static 'images/Rectangle 6.svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Bundt Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-    </div>
-</section>
+{% block title %}Products{% endblock title %}
 
-{% endblock %}  
+{% block content %}
+<section>
+    <main class="bigscreen:container bigscreen:mx-auto">
+        <section class="px-24 mobile:px-8 mt-16">
+            <div class="flex items-center py-4 mobile:hidden">
+                <h1 class="font-righteous text-4xl mr-4 pr-4" id="porductName">Cake</h1>
+                <ul class="flex justify-between gap-16">
+                    <li><a href="#" class="items_h p-3 border-[2px] border-solid border-transparent rounded-[2.5rem]" onclick="showContent(event,'cake')" id="cakeHeading">Cakes</a></li>
+                    <li><a href="#" class="items_h p-3 border-[2px] border-solid border-transparent rounded-[2.5rem]" onclick="showContent(event,'muffin')" id="muffinHeading">Muffins</a></li>
+                    <li><a href="#" class="items_h p-3 border-[2px] border-solid border-transparent rounded-[2.5rem]" onclick="showContent(event,'cupcake')" id="cupcakeHeading">Cupcake</a></li>
+                    <li><a href="#" class="items_h p-3 border-[2px] border-solid border-transparent rounded-[2.5rem]" onclick="showContent(event,'popsicle')" id="popsicleHeading">Popsicle</a></li>
+                </ul>
+            </div>
+            <div class="mobile:block hidden">
+                <select name="product" id="product" class="p-3">
+                    <option value="cakes" onclick="showContent(event,'cake')">Cakes</option>
+                    <option value="muffins" onclick="showContent(event,'muffin')">Muffins</option>
+                    <option value="cupcakes" onclick="showContent(event,'cupcake')">CupCakes</option>
+                    <option value="popsicles" onclick="showContent(event,'popsicle')">Popsicles</option>
+                </select>
+            </div>
+       </section>
+       <div class="px-24 mobile:px-8 items_displayed" id="cakeContent">
+        {% for cake in cakes %}
+        <div class="flex flex-wrap mobile:justify-center gap-3 item">
+            <div class="mr-5 mobile:mr-0 my-8 rounded-xl">
+                <a href="{% url 'cake:single_product' cake.id %}">
+                <img src="{{cake.image.url}}" alt="">
+                <h3 class="font-bold text-xl mt-3 font-montserrat">{{cake.price_one_kg}}</h3>
+                <p class="font-semibold text-[1.2rem]">{{cake.name}}</p>
+                </a>
+            </div>
+        </div> 
+        {% endfor %} 
+        </div>
+       <div class="px-24 mobile:px-8 hidden_1 items_displayed" id="muffinContent">
+        {% for muffin in muffins %}
+        <div class="flex flex-wrap mobile:justify-center gap-3 item">
+            <div class="mr-5 mobile:mr-0 my-8 rounded-xl">
+                <a href="{% url 'cake:single_product' muffin.id %}">
+                    <img src="{{muffin.image.url}}" alt="">
+                    <h3 class="font-bold text-xl mt-3 font-montserrat">{{muffin.name}}</h3>
+                    </a>
+            </div>
+        </div> 
+        {% endfor %}  
+        </div>
+       <div class="px-24 mobile:px-8 hidden_1 items_displayed" id="cupcakeContent">
+        {% for cupcake in cupcakes %}
+        <div class="flex flex-wrap mobile:justify-center gap-3 item">
+            <div class="mr-5 mobile:mr-0 my-8 rounded-xl">
+                <a href=""><img src="./images/Rectangle 6 (2).png" alt=""></a>
+                <h3 class="font-bold text-xl mt-3 font-montserrat">588 Rs</h3>
+                <p class="font-semibold text-[1.2rem]">Name</p>
+            </div>
+        </div> 
+        {% endfor %}   
+        </div>
+       <div class="px-24 mobile:px-8 hidden_1 items_displayed" id="popsicleContent">
+        {% for popsicle in popsicles %}
+        <div class="flex flex-wrap mobile:justify-center gap-3 item">
+            <div class="mr-5 mobile:mr-0 my-8 rounded-xl">
+                <a href=""><img src="./images/Rectangle 6 (2).png" alt=""></a>
+                <h3 class="font-bold text-xl mt-3 font-montserrat">588 Rs</h3>
+                <p class="font-semibold text-[1.2rem]">Name</p>
+            </div>
+        </div> 
+        {% endfor %} 
+        </div>
+    </main>
+    <style>
+        .items_displayed {
+            display: flex;
+            gap: .3rem;
+        }
+        .item img{
+            width: 320px;
+            max-height: 320px;
+            border-radius: .75rem;
+            overflow: hidden;
+            object-fit: cover;
+        }
+        @media all and (width<600px) {
+            .items_displayed {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</section>
+{% endblock content %}
+
+{% block ClientScripts %}<script src="{% static 'scripts/scripts.js' %}"></script>{% endblock ClientScripts %}

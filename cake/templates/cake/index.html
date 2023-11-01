@@ -1,90 +1,93 @@
 {% extends "cake/base.html" %}
+{% load static %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Home{% endblock title %}
+
+{% block OwlStyles %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />{% endblock %}
 
 {% block content %}
-{% load static %}
-<section class="sec2">
-    <div class="sec2-flex">
-        <div>
-            <h1 class="sec1-h1">The Most Delicious<br> Cakes in Kerala</h1>
-            <p class="sec1-p">The Most Beautiful and tasty Cakes in  Kerala and All Type of<br> Cakes Available in Our Shop</p>
-            <a href="#" class="sec1-button">Order Now</a>
-        </div>
-        <div>
-            <img src="{% static 'images/Union.svg' %}" class="sec1-img">
-            <img src="{% static 'images/image 1.svg' %}">
-        </div>
-    </div>
-</section>
 <section>
-    <h2 class="sec2-h2">Category</h2>
-    <div class="sec2-flex gap" >
-        <div class="sec2-round">
-            <h3 class="sec2-h3">Cake</h3>
-            <p class="sec2-p">Happiness is homemade. and it<br> starts with cake</p>
+    <div class="flex my-24 px-24 items-center justify-center mobile_max:px-8 mobile:flex-col-reverse">
+        <div class="relative">
+            <h1 class="font-bold text-5xl font-righteous font1 mobile:text-2xl mobile:text-center">The Most Delecious <br> Cakes in the Kerala</h1>
+            <p class="py-10 text-xl mobile:text-center">The Most Beutifull and tasty Cakes in Kerala and All Type of Cakes in Available in Our Shope </p>
+            <p class="mobile:text-center"><button class="bg-amber-500 transition-all px-16 py-2 hover:bg-black hover:text-white rounded-xl text-black mobile:">Order Now</button></p>
+            <div class="absolute top-[-4rem] right-0 mobile:hidden">
+                <img src="{% static 'images/Union.png' %}" alt="Error">
+            </div>
         </div>
-        <div class="sec2-round">
-            <h3 class="sec2-h3">Muffins</h3>
-            <p class="sec2-p">Baking muffins is like a little bit of<br> heaven in your kitchen.</p>
-        </div>
-        <div class="sec2-round">
-            <h3 class="sec2-h3">Cup Cake</h3>
-            <p class="sec2-p">Cupcakes are the dessert<br> equivalent of a hug</p>
-        </div>
-        <div class="sec2-round">
-            <h3 class="sec2-h3">Popsicle</h3>
-            <p class="sec2-p">Popsicles are the sweet escape<br> on a stick</p>
+        
+        <div>
+            <img src="{% static 'images/image 1.png' %}" alt="Error">
         </div>
     </div>
-</section>
-<section class="sec3">
+   </section>
+   <section>
+    <div class="">
+        <h2 class="text-center font-bold text-3xl py-10 font-righteous font1">Category</h2>
+        <div class="flex justify-center gap-8 mobile:grid flex-wrap">
+            {% for category in categories  %}
+            <a href="{% url 'cake:products' %}">
+                <div class="flex-col flex relative border-2 rounded-[7px] h-96 w-72 border-black text-center justify-center hover:opacity-100 group" style="overflow: hidden;">
+                    <div class="group-hover:opacity-0 transition-all duration-500 text-3xl">
+                        <h4 class="font-bold hover:opacity-0 font-righteous font1">{{category.category_name}}</h4>
+                        <p class="text-sm pt-3 hover:opacity-0">Happiness is homemade. and it<br> starts with cake</p>
+                    </div>
+                    <div class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 scale-[300%]">
+                        <img class=" opacity-0 group-hover:opacity-100 transition-all duration-200" src="{{category.category_dp.url}}" alt="">
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+   </section>
+   <section class="bg-[#393939] text-primary my-14">
+    <div class="py-28 px-8">
+        <div class="flex justify-evenly text-3xl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" class="mobile:hidden">
+                <path d="M14.083 4.23657C15.543 0.768722 20.457 0.76872 21.917 4.23656L23.9252 9.00647C24.508 10.3907 25.6093 11.492 26.9935 12.0748L31.7634 14.083C35.2313 15.543 35.2313 20.457 31.7634 21.917L26.9935 23.9252C25.6093 24.508 24.508 25.6093 23.9252 26.9935L21.917 31.7634C20.457 35.2313 15.543 35.2313 14.083 31.7634L12.0748 26.9935C11.492 25.6093 10.3907 24.508 9.00648 23.9252L4.23657 21.917C0.768722 20.457 0.76872 15.543 4.23656 14.083L9.00647 12.0748C10.3907 11.492 11.492 10.3907 12.0748 9.00648L14.083 4.23657Z" stroke="#FEFCFC" stroke-width="1.5"/>
+            </svg>
+            <h2 class="font-righteous text-center">Why people love Cake Walk cakes</h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" class="mobile:hidden" viewBox="0 0 36 36" fill="none">
+                <path d="M14.083 4.23657C15.543 0.768722 20.457 0.76872 21.917 4.23656L23.9252 9.00647C24.508 10.3907 25.6093 11.492 26.9935 12.0748L31.7634 14.083C35.2313 15.543 35.2313 20.457 31.7634 21.917L26.9935 23.9252C25.6093 24.508 24.508 25.6093 23.9252 26.9935L21.917 31.7634C20.457 35.2313 15.543 35.2313 14.083 31.7634L12.0748 26.9935C11.492 25.6093 10.3907 24.508 9.00648 23.9252L4.23657 21.917C0.768722 20.457 0.76872 15.543 4.23656 14.083L9.00647 12.0748C10.3907 11.492 11.492 10.3907 12.0748 9.00648L14.083 4.23657Z" stroke="#FEFCFC" stroke-width="1.5"/>
+            </svg>
+        </div>
+        <div class="owl-carousel">
+            <div class="text-center leading-loose pt-16">
+                <p class="text-lg font-ss px-24 mobile:px-8">Cake Walk made a stunning unicorn cake for my daughter’s party. Rainbow layers and a cute fondant  unicorn. My daughter was thrilled. The cake was yummy and moist. Sugar Bubble is the best!</p>
+                <h3 class="font-bold text-xl pt-5">- Mary</h3>
+            </div>
+        </div>
+    </div>
+   </section>
+   <section>
     <div>
-        <div class="sec3-flex" style="padding-top: 4rem;">
-            <img src="{% static 'images/Star 2.svg' %}">
-            <h1 class="sec3-h1">Why people love Cake Walk cakes</h1>
-            <img src="{% static 'images/Star 2.svg' %}">
-        </div>
-        <p class="sec3-p">Cake Walk made a stunning unicorn cake for my daughter’s party. Rainbow layers and a cute fondant<br> unicorn. My daughter was thrilled. The cake was yummy and moist. Sugar Bubble is the best!</p>
-        <h6 class="sec3-h6">- Mary</h6>
-    </div>
-    
-</section>
-<section class="sec4">
-    
-    <h1 class="sec4-h1">Best Selling</h1>
-    <div class="sec4-flex">
-        <div>
-            <img src="{% static 'images/Rectangle 6.svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Pumpkin Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (1).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Bundt Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (2).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
-        </div>
-        <div>
-            <img src="{% static 'images/Rectangle 6 (3).svg' %}">
-            <h4 class="sec4-h4">₹ 540</h4>
-            <p class="sec4-p">Butterscotch Caramel Cake</p>
+        <h2 class="text-center font-bold text-4xl mt-28 font-righteous">Best Selling</h2>
+        <div class="flex justify-center gap-10 py-16 flex-wrap px-8">
+            {% for cake in cakes %}
+            <a href="{% url 'cake:single_product' cake.id %}">
+                <div>
+                    <img src="{{cake.image.url}}" alt="">
+                    <h3 class="py-3 font-bold text-xl">₹ {{cake.price_one_kg}}</h3>
+                    <p>{{cake.name}}</p>
+                </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
-    <div class="sec4-div">
-        <a href="#" class="sec4-link">View More</a>
-    </div>
-    
-</section>
-<section class="sec5">
-    <h1 class="sec4-h1">About Us</h1>
-    <p class="sec5-p">At Cake Walk, we believe that every moment deserves to be celebrated with a touch of sweetness. Our journey began with a simple passion for<br> baking and an unwavering commitment to creating exceptional cakes that not only tantalize your taste buds but also enchant your eyes<br><br>
-
-        Our story is one of dedication, creativity, and an unyielding love for the art of baking. It all started in a cozy kitchen, where our founder, Leena, spent<br> countless hours experimenting with ingredients, recipes, and decorating techniques. With a dream of spreading happiness through the magic of<br> cakes, [Founder's Name] embarked on a journey filled with flour, sugar, and lots of love.<br>
-        As our reputation for crafting delectable masterpieces grew, so did our little bakery. We transitioned from that cozy kitchen to a full-fledged bakery,<br> and eventually, we ventured into the digital world to reach cake enthusiasts worldwide. Today, we are proud to be your trusted source for<br> extraordinary cakes that add a delightful touch to your special moments.</p>
-</section>
-{% endblock %}   
+   </section>
+   <div class="flex justify-center mb-36">
+    <p class="px-8"><button class="text-center border-2 transition-all border-black rounded-xl py-3 px-20 hover:bg-black hover:text-white">View More</button></p>
+   </div>
+   <div class="bg-amber-200 text-center p-10 text-lg mobile:w-full mobile:px-8">
+    <h2 class="font-bold text-3xl pb-10 font-righteous">About Us</h2>
+    <p class="py-8 font-ss">At Cake Walk, we believe that every moment deserves to be celebrated with a touch of sweetness. Our journey began with a simple passion for baking and an unwavering commitment to creating exceptional cakes that not only tantalize your taste buds but also enchant your eyes</p>
+    <p class="font-ss"> Our story is one of dedication, creativity, and an unyielding love for the art of baking. It all started in a cozy kitchen, where our founder, Leena, spent countless hours experimenting with ingredients, recipes, and decorating techniques. With a dream of spreading happiness through the magic of cakes, [Founder's Name] embarked on a journey filled with flour, sugar, and lots of love.<br>
+        As our reputation for crafting delectable masterpieces grew, so did our little bakery. We transitioned from that cozy kitchen to a full-fledged bakery, and eventually, we ventured into the digital world to reach cake enthusiasts worldwide. Today, we are proud to be your trusted source for extraordinary cakes that add a delightful touch to your special moments.</p>
+   </div>
+{% endblock content %}
+{% block JqueryInitialization %}<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>{% endblock JqueryInitialization %}
+{% block OwlScripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>{% endblock OwlScripts %}
+{% block ClientScripts %}<script src="{% static 'scripts/scripts.js' %}"></script>{% endblock ClientScripts %}
