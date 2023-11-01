@@ -79,15 +79,13 @@ def product(request):
     return render(request, 'cake/product.html')  
 
 def userprofile(request):
-    user = request.user
+    user = request.user  # Assuming the user is logged in
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST, instance=user)
+        form = UserProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('user_profile')  # Redirect to the user's profile page after saving
     else:
-        form = UserRegistrationForm(instance=user)
-
+        form = UserProfileForm(instance=user)
     return render(request, 'cake/user_profile.html', {'form': form})
 
 def signout(request):
